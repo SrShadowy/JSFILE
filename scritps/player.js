@@ -156,6 +156,8 @@ class Player_manager
                        player[0].atks.splice(i,1);
                    }
                 }
+                if(player[0].hp < 0)
+                return true;
         }
 
     }

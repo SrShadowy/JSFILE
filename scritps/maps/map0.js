@@ -1,7 +1,9 @@
 let speed = 0;
 let chenge_map = 0;
+let inMap = 0;
 function map0(cvn, ctx, key_)
 {
+
     if(speed > 1400 || chenge_map != 0)
     {
         chenge_map = 1;

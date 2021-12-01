@@ -59,16 +59,12 @@ class Engine
                 }
             break;
             case 1:
-
                 if(map1(this.Context, 0))
                 this.onMap = 2;
-                
             break;
             case 2:
-
                 if(map2(this.Context))
                 this.onMap = 0;
-                
             break;
 
             case -1: // menu
@@ -76,13 +72,26 @@ class Engine
                {
                    this.onMap = 0;
                }
+               break;
+            case -2: // Game over
+                {
+                   if(hud.game_over(this.Context, this.Canvas.width, this.Canvas.height))
+                   {
+                        location.reload(true);
+                        //this.game_pause = true;
+                        //this.onMap = -1;
+                   }
 
+                }
         }
 
         let game = ( key, dest ) => {
             Events_manager.run_events(this.Context, key, this.onMap);
-            Player_manager.show_players(this.Context, false, key, dest, undefined, delta, this.onMap);
             enimy.show_us(this.Context, this.onMap);
+            if(Player_manager.show_players(this.Context, false, key, dest, undefined, delta, this.onMap))
+            {
+                this.onMap = -2;
+            }
         }
 
 

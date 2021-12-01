@@ -43,19 +43,12 @@ class hud
 
     static menu_start(ctx, screenW, screenH, mouse)
     {
-
-        // background
-
-        // name
-        
-        // options
-
         let Menu = (x,y , w,h)=>
         {
             ctx.fillStyle = "#004bffBB";
             ctx.fillRect( x , y , w, h);
         }
-        let Generic_button = (text = "", x = 0, y = 0, sizeW = 10, sizeH = 10  ) =>
+        let Generic_button = (text = "", x = 0, y = 0, sizeW = 10, sizeH = 10) =>
         {
             ctx.fillStyle = "white";
             ctx.strokeRect(x, y, sizeW, sizeH);
@@ -66,7 +59,6 @@ class hud
                     ctx.fillStyle = "#001Fff55";
                     ctx.fillRect(x, y , sizeW,  sizeH);
                     ctx.fillStyle = "White";
-
                     if(mouse.clicked) return true;
                 }
             return false;
@@ -94,7 +86,31 @@ class hud
         {
             return true;;
         }
+    }
 
+    static game_over(ctx, screenW, screenH)
+    {
+        ctx.fillStyle = "black";
+        ctx.fillRect(0,0, screenW, screenH);
+        ctx.fillStyle = "white";
+        ctx.font = "23px Arial";
+        ctx.fillText("GAME OVER", (screenW/2)-120, (screenH/2)-80 );
+        ctx.strokeStyle = "red"
+        ctx.font = "23px Arial";
+        ctx.strokeText("GAME OVER", (screenW/2)-120, (screenH/2)-80 );
+
+        if(this.sec == undefined)
+        {
+            this.sec = performance.now();
+        }
+
+        if(performance.now() - this.sec > 1000)
+        {
+            this.sec = performance.now();
+            return true;
+        }else{
+            console.log(performance.now() - this.sec);
+        }
 
     }
 

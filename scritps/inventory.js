@@ -11,25 +11,22 @@ class Inventary_manager
 
         this.id             = id;
         this.value          = value;        // the amount on inventory
-        this.max            = max;        // the max of amount on inventory (0 == any)
+        this.max            = max;          // the max of amount on inventory (0 == any)
         this.price          = price;
         this.name           = name;
         this.desc           = desc;
-        this.availability   = ava;        //0 Forever / 1 Menu / ??? may combate / 3 none
+        this.availability   = ava;          //0 Forever / 1 Menu / ??? may combate / 3 none
         this.consumable     = consu;
-        this.type           = type;        // 0 comun / 1 especial / 2 rare / 3 godness
+        this.type           = type;         // 0 comun / 1 especial / 2 rare / 3 godness
         this.reach          = reach;        // 1 = one character, 2 = team, 3 = one enimy, 4 = all enimy
 
 
     }
 
-    use_me()
+    use_me(me)
     {
 
     }
-
-
-
 
 
     static HPpequeno(value)
@@ -55,6 +52,26 @@ class Inventary_manager
         return item
     }
 
+    static Cura_da_deusa(value)
+    {
+        let item = new Inventary_manager(5,value,10,1550,"Cura da Deusa", "Cura 100 de HP e 50 de MP para todos do time", 0, true, 3,1);
+        item.use_me = function(me)
+        {
+            for(let i of me)
+            {
+                me.mp += 50;
+                if(me.mp > me.mpCap)
+                    me.mp = me.mpCap;
+
+                me.hp += 100;
+                if(me.hp > me.hpCap)
+                     me.hp = me.hpCap;
+            }
+        }
+        return item;
+    }
+
+    
 
     static add_to_inv(item)
     {
