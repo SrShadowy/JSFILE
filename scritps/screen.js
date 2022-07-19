@@ -7,7 +7,7 @@ class GridCell{
         this.x      = x;
         this.y      = y;
         this.height = sizeH;
-        this.width = sizeW;
+        this.width  = sizeW;
         this.color  = 'Black';
     }
 
@@ -25,7 +25,6 @@ class GridCell{
     /******************* Canvas & And Cell Size ************************/
     static init_grids(CanvasHeight, CanvasWeidth, CellSize)
     {
- 
         for (let h = 0; h < CanvasHeight; h += CellSize )
         {
             for(let w = 0; w < CanvasWeidth; w += CellSize )

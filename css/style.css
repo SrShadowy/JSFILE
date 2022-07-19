@@ -1,0 +1,46 @@
+#ed_game
+{
+    width: 900px;
+    height: 600px;
+    background-color: white;
+    cursor: none ;
+    float:left;
+}
+#canvas_layout{
+    color: white;
+    border: tomato 1px solid;
+    width: 600px;
+    display: block;
+    padding: 5px;
+}
+
+#tilesSet img{
+    
+    user-select: none;
+}
+
+#grid_imgs{
+    position: sticky;
+    width: 900px;
+    height: 590px;
+    overflow-y: scroll;
+    border: tomato 5px solid;
+
+}
+
+#grid_imgs #sqe{
+    position: absolute;
+    top:0;
+    left:0;
+    border: red 1px solid;
+    padding: 23px;
+}
+
+#grid_imgs #grids
+{
+    position: absolute;
+
+    padding: 23px;
+    border: blueviolet 1px solid;
+}
+

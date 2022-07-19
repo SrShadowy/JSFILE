@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS GRAPHICS ENGINE!</title>
+    <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+    
+    
+    <section id = "canvas_layout">
+        <span>Layout:</span> <span id="SetLayout">BACKGROUND</span><br>
+        <label for="Show_grids">Show Grids:</label>
+        <input type="checkbox" name="GRIDS" id="Show_grids" checked>
+        <p>SELECT LAYOUT:</p>
+        <button id="BACKGORUND" onclick="Layoutbackground()">BACKGORUND</button><br>
+        <button id="ITENS" onclick="LayoutObscule()">ITENS</button><br>
+        <button id="DETAILS" onclick="LayoutDetails()">DETAILS</button>
+    </section>
+
+
+    <section>
+        <label for="for_grids">INPUT IMG ON GRID:</label>
+        <input type="checkbox" name="for_grids" id="for_grids" checked>
+
+        <label for="replace_grids" >replace on Grids:</label>
+        <input type="checkbox" name="replace" id="replace_grids" checked>
+
+        <br>
+        <button  id="CL" onclick="imgs_(0)">EXTERIOR</button>
+        <button  id="INTERIORS" onclick="imgs_(1)">INTERIORS</button>
+        <button  id="Room" onclick="imgs_(2)">ROOM</button>
+
+
+        <button style="height: 30px; width: 40px; display: block;" onclick="set_cur_function(0)">
+            <img src="./resources/EDITOR/UIX/pencil.svg" alt="">
+        </button>
+        <button style="height: 30px; width: 40px;" onclick="set_cur_function(1)">
+            <img src="./resources/EDITOR/UIX/eraser.svg" alt="">
+        </button>
+
+    </section>
+
+    <section class="display">
+        <canvas id="ed_game">
+
+        </canvas>
+    
+        <section id = "tilesSet" >
+    
+            <section id="grid_imgs">
+                <img id="tileset" style="display: block;" src="./resources/EDITOR/48x48/!CL_DEMO_48x48.png" alt="tileset">
+                <div id="sqe"></div>
+                <!-- <div id="grids" style="position: absolute; top:0; left: 0;"></div> -->
+            </section>
+            <input type="number" name="X" id="X" value="0">
+            <input type="number" name="Y" id="Y" value='0'>
+        </section>
+    </section>
+
+
+</body>
+
+<footer>
+    <script src="./scritps/Editor.js"></script>
+</footer>
+</html>
